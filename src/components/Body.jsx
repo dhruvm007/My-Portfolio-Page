@@ -1,5 +1,5 @@
-import About from './About'
-import Work from './Work'
+import About from '../pages/About'
+import Work from '../pages/Work'
 
 const Body = () => {
     return (

@@ -1,8 +1,7 @@
-import aboutmeImg from '../assets/aboutMeImg.png';
-import { Card1, Card2, Card3 } from './Cards.jsx';
-import { CardDescription } from './CardDescription.jsx';
+import { Card1, Card2, Card3 } from '../utils/Cards.jsx';
+import { CardDescription } from '../utils/CardDescription.jsx';
 import { useState } from 'react';
-import {cookBuddyDescription, clipSync, placeMate } from '../utils/ProjectDescription.jsx';
+import { cookBuddyDescription, clipSyncDescription, placeMateDescription } from '../utils/ProjectDescription.jsx';
 
 const Work = () => {
     // const [clicked, setClicked] = useState("");
@@ -15,45 +14,62 @@ const Work = () => {
         description: "",
         childCard: null,
     });
+    const [viewMore, setViewMore] = useState('');
 
     return (
-        <div id="about" className="bg-gradient-grey m-[3rem] rounded-3xl h-[90vh] flex flex-col items-center">
+        <div id="work" className="bg-black m-[3rem] rounded-3xl h-[90vh] flex flex-col shadow-cyan items-center">
             <div className="flex justify-center">
-                <h1 className='text-white text-5xl md:text-7xl font-extrabold mt-[6rem]'>Work</h1>
+                <h1 className='text-white text-5xl md:text-7xl font-extrabold mt-[4.5rem]'>Work</h1>
             </div>
 
             {
                 !myCardDetails.cardNumber ?
-                    <div className='w-full flex gap-32 justify-center mt-[10rem]'>
+                    <div className='w-full flex gap-32 justify-center mt-[5rem]'>
                         {/* clicked is being sent as a prop
                 not using clicked state in the baseCard child because that is independent component
                 if one child is clicked, the other doesn't know
              */}
-                        <>
-
-                            <Card1 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} />
-                            <Card2 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} />
-                            <Card3 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} />
-                        </>
+                        {/* <> */}
+                        <Card1
+                            myCardDetails={myCardDetails}
+                            setMyCardDetails={setMyCardDetails}
+                            viewMore={viewMore}
+                            setViewMore={setViewMore}
+                        />
+                        <Card2
+                            myCardDetails={myCardDetails}
+                            setMyCardDetails={setMyCardDetails}
+                            viewMore={viewMore}
+                            setViewMore={setViewMore}
+                        />
+                        <Card3
+                            myCardDetails={myCardDetails}
+                            setMyCardDetails={setMyCardDetails}
+                            viewMore={viewMore}
+                            setViewMore={setViewMore}
+                        />
+                        {/* </> */}
                     </div> :
-                    <CardDescription 
+                    <CardDescription
                         childCard={
-                            myCardDetails.cardNumber === "Card1" ? 
+                            myCardDetails.cardNumber === "CookBuddy" ?
                                 <Card1 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} description={cookBuddyDescription} />
-                            : myCardDetails.cardNumber === "Card2" ? 
-                                <Card2 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} description={clipSync}/>
-                            : 
-                                <Card3 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} description={placeMate}/>
-                            }
-                        cardNumber="card1"
+                                : myCardDetails.cardNumber === "ClipSync" ?
+                                    <Card2 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} description={clipSyncDescription} />
+                                    :
+                                    <Card3 myCardDetails={myCardDetails} setMyCardDetails={setMyCardDetails} description={placeMateDescription} />
+                        }
+                        cardNumber={myCardDetails.cardNumber}
                         myCardDetails={myCardDetails}
                         setMyCardDetails={setMyCardDetails}
                         description={
-                            myCardDetails.cardNumber === "Card1"? cookBuddyDescription :
-                            myCardDetails.cardNumber === "Card2"? clipSync : placeMate
+                            myCardDetails.cardNumber === "CookBuddy" ? cookBuddyDescription :
+                                myCardDetails.cardNumber === "ClipSync" ? clipSyncDescription : placeMateDescription
                         }
                         title={myCardDetails.cardNumber}
-                        />
+                        viewMore={viewMore}
+                        setViewMore={setViewMore}
+                    />
             }
         </div>
     )

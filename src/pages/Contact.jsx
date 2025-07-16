@@ -1,14 +1,10 @@
-import Form from './Form.jsx';
-import { Linkedin } from 'lucide-react';
-import { Instagram } from 'lucide-react';
-import { Github } from 'lucide-react';
-import { Code } from 'lucide-react';
-import { Mail } from 'lucide-react';
+import Form from '../utils/Form.jsx';
+import { Linkedin, Instagram, Github, Code, Mail, Twitter } from 'lucide-react';
 
 const Contact = () => {
     return (
-        <div className='h-[55vh] bg-gradient-grey mt-[3rem] flex p-[2rem]'>
-            <div className='w-[50%] flex justify-center border-r-[0.1rem] border-r-cyan-400'>
+        <div id='contact' className='h-[55vh] bg-black mt-[3rem] flex p-[2rem] shadow-cyan'>
+            <div className='w-[50%] flex justify-center border-r-[0.1rem] border-r-gray-700'>
                 <Form/>
             </div>
             <div className='pl-[2rem]'>
@@ -38,6 +34,12 @@ const Contact = () => {
                         <li className='flex gap-4'>
                             <Code className="inline"/>
                             Leetcode
+                        </li>
+                    </a>
+                    <a className="hover:text-cyan-500 duration-300" href='https://x.com/dhruuvvv_' target='_blank'>
+                        <li className='flex gap-4'>
+                            <Twitter className="inline"/>
+                            X / Twitter
                         </li>
                     </a>
                 </ul>

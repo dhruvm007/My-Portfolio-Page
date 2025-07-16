@@ -8,25 +8,25 @@ import {TypeAnimation} from 'react-type-animation';
 
 const Header = () => {
     return (
-        <div className='m-[3rem] bg-gradient-grey rounded-3xl'>
-            <div className="h-[90vh] text-white border-b-[0.1rem] border-cyan-400">
+        <div className='m-[3rem] bg-black rounded-3xl shadow-cyan'>
+            <div className="h-[90vh] text-white">
                 {/* <PageBackground/> */}
                 <div className="">
                     <ul className="list-none flex justify-center pt-4 font-bold select-none">
                         <li className="mt-[0.25rem] mx-[100px] relative group"><a href="#home">
-                        </a>HOME
+                        HOME</a>
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-300 transition-all duration-500 group-hover:w-full"></span>
                         </li>
                         <li className="mt-[0.25rem] mx-[100px] relative group"><a href="#about">
-                        </a>ABOUT
+                        ABOUT</a>
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-300 transition-all duration-500 group-hover:w-full"></span>
                         </li>
                         <li className="mt-[0.25rem] mx-[100px] relative group"><a href="#work">
-                        </a>WORK
+                        WORK</a>
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-300 transition-all duration-500 group-hover:w-full"></span>
                         </li>
                         <li className="mt-[0.25rem] mx-[100px] relative group"><a href="#contact">
-                        </a>CONTACT
+                        CONTACT</a>
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-cyan-300 transition-all duration-500 group-hover:w-full"></span>
                         </li>
                     </ul>
